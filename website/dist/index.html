@@ -1002,13 +1002,11 @@
     </div>
   </footer>
 
-  <!-- Hidden YouTube Background Music Player Container -->
-  <div id="ytMusicContainer" class="fixed -top-96 -left-96 w-1 h-1 opacity-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
-    <div id="ytPlayer"></div>
-  </div>
-
-  <!-- YouTube IFrame API -->
-  <script src="https://www.youtube.com/iframe_api"></script>
+  <!-- Native HTML5 Background Music Audio Player -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="/assets/music-BmhoQTn4.m4a" type="audio/mp4" />
+    <source src="/assets/music-BmhoQTn4.m4a" type="audio/mpeg" />
+  </audio>
 
   <!-- ========================================== -->
   <!-- JAVASCRIPT LOGIC & EXPERIENCES             -->
@@ -1049,54 +1047,10 @@
     }
 
     /* ------------------------------------------ */
-    /* 2. BACKGROUND MUSIC: YOUTUBE & CHIME SYNTH */
+    /* 2. BACKGROUND MUSIC: NATIVE AUDIO + SYNTH  */
     /* ------------------------------------------ */
-    const YT_VIDEO_ID = 'JZm-twcwq6s';
-    let ytPlayer = null;
-    let isYtReady = false;
+    const bgAudio = document.getElementById('bgMusic');
     let isPlayingAudio = false;
-
-    // Called automatically by YouTube IFrame API
-    window.onYouTubeIframeAPIReady = function() {
-      try {
-        ytPlayer = new YT.Player('ytPlayer', {
-          height: '10',
-          width: '10',
-          videoId: YT_VIDEO_ID,
-          playerVars: {
-            autoplay: 0,
-            controls: 0,
-            disablekb: 1,
-            fs: 0,
-            loop: 1,
-            playlist: YT_VIDEO_ID,
-            modestbranding: 1,
-            playsinline: 1,
-            rel: 0
-          },
-          events: {
-            onReady: function(event) {
-              isYtReady = true;
-              try { event.target.setVolume(90); } catch(e) {}
-            },
-            onStateChange: function(event) {
-              if (window.YT && event.data === YT.PlayerState.PLAYING) {
-                isPlayingAudio = true;
-                updateSoundUi(true);
-              } else if (window.YT && (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED)) {
-                isPlayingAudio = false;
-                updateSoundUi(false);
-              }
-            },
-            onError: function() {
-              isYtReady = false;
-            }
-          }
-        });
-      } catch (err) {
-        console.warn('YouTube IFrame API initialisation skipped, using fallback synthesizer.', err);
-      }
-    };
 
     function updateSoundUi(playing) {
       const icon = document.getElementById('soundIcon');
@@ -1120,10 +1074,10 @@
 
     // Harmonic Chord Progressions in C / Am (Dreamy & Warm Fallback)
     const chords = [
-      [261.63, 329.63, 392.00, 523.25], // C major (warm, welcoming)
-      [220.00, 261.63, 329.63, 440.00], // A minor (deep, emotional)
-      [174.61, 220.00, 261.63, 349.23], // F major (loving, tender)
-      [196.00, 246.94, 293.66, 392.00]  // G major (sweet, luminous)
+      [261.63, 329.63, 392.00, 523.25], // C major
+      [220.00, 261.63, 329.63, 440.00], // A minor
+      [174.61, 220.00, 261.63, 349.23], // F major
+      [196.00, 246.94, 293.66, 392.00]  // G major
     ];
     let chordIndex = 0;
 
@@ -1187,11 +1141,14 @@
       isPlayingAudio = true;
       updateSoundUi(true);
 
-      if (isYtReady && ytPlayer && typeof ytPlayer.playVideo === 'function') {
-        try {
-          ytPlayer.playVideo();
-        } catch (e) {
-          startSynthMusic();
+      if (bgAudio) {
+        bgAudio.volume = 0.9;
+        const playPromise = bgAudio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((err) => {
+            console.warn('Native audio play error, using synth chimes:', err);
+            startSynthMusic();
+          });
         }
       } else {
         startSynthMusic();
@@ -1199,10 +1156,8 @@
     }
 
     function stopMusic() {
-      if (isYtReady && ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
-        try {
-          ytPlayer.pauseVideo();
-        } catch (e) {}
+      if (bgAudio) {
+        bgAudio.pause();
       }
       stopSynthMusic();
       isPlayingAudio = false;
