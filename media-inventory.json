@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "project": "DIMPU — Birthday Experience",
+  "inspection_date": "2026-11-08",
+  "workspace_root": "D:\\chitti love bday",
+  "inspection_scope": "Recursive file/folder listing, image dimensions, EXIF orientation presence, file sizes, media type counts, project-configuration presence, and SHA-256 exact duplicate candidates.",
+  "visual_review_performed": false,
+  "originals_modified": false,
+  "workspace_summary": {
+    "file_count": 12,
+    "directory_count": 0,
+    "image_count": 12,
+    "video_count": 0,
+    "audio_count": 0,
+    "other_file_count": 0,
+    "extension_counts": {
+      ".jpeg": 12
+    },
+    "existing_project_detected": false,
+    "exact_sha256_duplicate_group_count": 0,
+    "total_image_bytes": 1944161,
+    "total_image_mib": 1.854
+  },
+  "image_metadata": {
+    "reader_status": "All 12 images readable",
+    "orientation_method": "EXIF orientation tag inspection",
+    "orientation_tag_present_count": 0,
+    "orientation_tag_absent_count": 12,
+    "orientation_note": "No EXIF orientation tag was recorded; display dimensions are therefore reported as stored pixel dimensions. This is not a visual orientation review.",
+    "portrait_count": 9,
+    "landscape_count": 2,
+    "square_count": 1,
+    "minimum_width_px": 504,
+    "minimum_height_px": 820,
+    "maximum_width_px": 1440,
+    "maximum_height_px": 2560,
+    "minimum_file_bytes": 61964,
+    "maximum_file_bytes": 276814
+  },
+  "duplicate_analysis": {
+    "method": "SHA-256 exact-content comparison",
+    "exact_duplicates_found": false,
+    "visual_or_perceptual_comparison_performed": false,
+    "candidate_note": "Files sharing a WhatsApp timestamp or numbered filename suffix may merit visual comparison, but cannot be identified as similar or duplicate without reviewing the image content."
+  },
+  "project_configuration": {
+    "detected": false,
+    "files_or_dependencies_found": [],
+    "recommendation": "Create a standalone application under website\\ and preserve source photographs in their existing workspace locations."
+  },
+  "media_files": [
+    {
+      "relative_path": "WhatsApp Image 2026-11-08 at 4.22.20 PM (1).jpeg",
+      "extension": ".jpeg",
+      "format": "JPEG",
+      "width_px": 1080,
+      "height_px": 820,
+      "exif_orientation": "not-recorded",
+      "display_width_px": 1080,
+      "display_height_px": 820,
+      "file_size_bytes": 267124,
+      "sha256": "B3D499B9DACE19025932BA3D378D2B71C802481F417415176E424BC18C6DD9B9"
+    },
+    {
+      "relative_path": "WhatsApp Image 2026-11-08 at 4.22.20 PM (2).jpeg",
+      "extension": ".jpeg",
+      "format": "JPEG",
+      "width_px": 1080,
+      "height_px": 920,
+      "exif_orientation": "not-recorded",
+      "display_width_px": 1080,
+      "display_height_px": 920,
+      "file_size_bytes": 276814,
+      "sha256": "C5EEC8137EFFC118E3778C8C3C7B78984D6A56038B95CE47FC242A24DCF9D87A"
+    },
+    {
+      "relative_path": "WhatsApp Image 2026-11-08 at 4.22.20 PM.jpeg",
+      "extension": ".jpeg",
+      "format": "JPEG",
+      "width_px": 536,
+      "height_px": 912,
+      "exif_orientation": "not-recorded",
+      "display_width_px": 536,
+      "display_height_px": 912,
+      "file_size_bytes": 72527,
+      "sha256": "887657B9A63E37DFE91221DBA9B4D59E74C78C6D905C85C74B8C23CB4D78D237"
+    },
+    {
+      "relative_path": "WhatsApp Image 2026-11-08 at 4.22.21 PM (1).jpeg",
+      "extension": ".jpeg",
+      "format": "JPEG",
+      "width_px": 900,
+      "height_px": 1600,
+      "exif_orientation": "not-recorded",
+      "display_width_px": 900,
+      "display_height_px": 1600,
+      "file_size_bytes": 176345,
+      "sha256": "3CF7608E1CED763419CA131A8E0D1782CCC3A7644A6C1C5C1BD94F888CEC6368"
+    },
+    {
+      "relative_path": "WhatsApp Image 2026-11-08 at 4.22.21 PM (2).jpeg",
+      "extension": ".jpeg",
+      "format": "JPEG",
+      "width_px": 1200,
+      "height_px": 1600,
+      "exif_orientation": "not-recorded",
+      "display_width_px": 1200,
+      "display_height_px": 1600,
+      "file_size_bytes": 259265,
+      "sha256": "9E36C72518F4C68D1258016C520C662D46713F920F6D543F1005716FAE73063B"
+    },
+    {
+      "relative_path": "WhatsApp Image 2026-11-08 at 4.22.21 PM.jpeg",
+      "extension": ".jpeg",
+      "format": "JPEG",
+      "width_px": 504,
+      "height_px": 1364,
+      "exif_orientation": "not-recorded",
+      "display_width_px": 504,
+      "display_height_px": 1364,
+      "file_size_bytes": 61964,
+      "sha256": "50C13BC32F1E22C0A2FE45BF59307FEABAA9F23ACF3F63AFAB1054F21910C30F"
+    },
+    {
+      "relative_path": "WhatsApp Image 2026-11-08 at 4.22.22 PM (1).jpeg",
+      "extension": ".jpeg",
+      "format": "JPEG",
+      "width_px": 900,
+      "height_px": 900,
+      "exif_orientation": "not-recorded",
+      "display_width_px": 900,
+      "display_height_px": 900,
+      "file_size_bytes": 87751,
+      "sha256": "63217120E0A36823C1A274A054960DBFA4786959E289F9EA006D5D9C7FC902B9"
+    },
+    {
+      "relative_path": "WhatsApp Image 2026-11-08 at 4.22.22 PM (2).jpeg",
+      "extension": ".jpeg",
+      "format": "JPEG",
+      "width_px": 621,
+      "height_px": 1104,
+      "exif_orientation": "not-recorded",
+      "display_width_px": 621,
+      "display_height_px": 1104,
+      "file_size_bytes": 87061,
+      "sha256": "6E157E83CE711A9EE682DBCDB0172E89512C94F5206C65BEE3B20A1AAA7E7598"
+    },
+    {
+      "relative_path": "WhatsApp Image 2026-11-08 at 4.22.22 PM (3).jpeg",
+      "extension": ".jpeg",
+      "format": "JPEG",
+      "width_px": 900,
+      "height_px": 1600,
+      "exif_orientation": "not-recorded",
+      "display_width_px": 900,
+      "display_height_px": 1600,
+      "file_size_bytes": 164496,
+      "sha256": "E22802E7487270FCC260BF458F987FE7FE0F4602762FABC6D999D0AF557D70F5"
+    },
+    {
+      "relative_path": "WhatsApp Image 2026-11-08 at 4.22.22 PM.jpeg",
+      "extension": ".jpeg",
+      "format": "JPEG",
+      "width_px": 900,
+      "height_px": 1600,
+      "exif_orientation": "not-recorded",
+      "display_width_px": 900,
+      "display_height_px": 1600,
+      "file_size_bytes": 179170,
+      "sha256": "3439A15124B3A54D18BDA0377BC38E0BC8FA6834FC6474B1AEC21FEA3E01FAD8"
+    },
+    {
+      "relative_path": "WhatsApp Image 2026-11-08 at 4.22.23 PM (1).jpeg",
+      "extension": ".jpeg",
+      "format": "JPEG",
+      "width_px": 1080,
+      "height_px": 1920,
+      "exif_orientation": "not-recorded",
+      "display_width_px": 1080,
+      "display_height_px": 1920,
+      "file_size_bytes": 117069,
+      "sha256": "C9287AED137C3609F165EA6797CEE62CAD2E1732067C1143164674B3BFDFB053"
+    },
+    {
+      "relative_path": "WhatsApp Image 2026-11-08 at 4.22.23 PM.jpeg",
+      "extension": ".jpeg",
+      "format": "JPEG",
+      "width_px": 1440,
+      "height_px": 2560,
+      "exif_orientation": "not-recorded",
+      "display_width_px": 1440,
+      "display_height_px": 2560,
+      "file_size_bytes": 194575,
+      "sha256": "312D05F347C38D00B634F8CB5BA817582002BD322EA942169A9779B0216D5EAF"
+    }
+  ]
+}

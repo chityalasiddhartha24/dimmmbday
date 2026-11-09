@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>A Little World Made for DIMPU ❤️</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#891933",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#400010",
+            "on-secondary-fixed": "#2b1700",
+            "secondary-fixed": "#ffddbb",
+            "primary-fixed-dim": "#ffb2bd",
+            "on-surface-variant": "#574144",
+            "surface-container": "#efeeea",
+            "secondary-fixed-dim": "#f5bc7e",
+            "on-surface": "#1b1c1a",
+            "surface-dim": "#dbdad6",
+            "on-background": "#1b1c1a",
+            "surface-variant": "#e4e2de",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed": "#400014",
+            "primary-container": "#881337",
+            "tertiary-container": "#871832",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#f5f3ef",
+            "secondary-container": "#fec485",
+            "on-secondary-fixed-variant": "#653e0b",
+            "on-tertiary-container": "#ff95a1",
+            "on-error": "#ffffff",
+            "on-primary-container": "#ff93a6",
+            "surface": "#fbf9f5",
+            "on-primary": "#ffffff",
+            "tertiary": "#65001e",
+            "primary-fixed": "#ffd9dd",
+            "outline": "#8a7174",
+            "on-secondary-container": "#794f1b",
+            "tertiary-fixed": "#ffdadc",
+            "inverse-primary": "#ffb2bd",
+            "inverse-on-surface": "#f2f0ed",
+            "surface-container-lowest": "#ffffff",
+            "error": "#ba1a1a",
+            "outline-variant": "#debfc2",
+            "surface-bright": "#fbf9f5",
+            "surface-tint": "#aa304f",
+            "surface-container-high": "#eae8e4",
+            "tertiary-fixed-dim": "#ffb2b9",
+            "on-primary-fixed-variant": "#8a1538",
+            "surface-container-highest": "#e4e2de",
+            "inverse-surface": "#30312e",
+            "primary": "#640023",
+            "on-error-container": "#93000a",
+            "background": "#fbf9f5",
+            "secondary": "#805521"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.75rem",
+            "space-xl": "3rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "1rem",
+            "gutter": "1.5rem",
+            "margin-mobile": "1.25rem",
+            "margin": "3rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "quote-accent": ["Playfair Display"],
+            "headline-md": ["Playfair Display"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Playfair Display"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "headline-md-mobile": ["Playfair Display"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Playfair Display"],
+            "display-hero": ["Playfair Display"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Playfair Display"]
+          },
+          "fontSize": {
+            "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.1em", "fontWeight": "600" }],
+            "quote-accent": ["1.75rem", { "lineHeight": "2.5rem", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["2rem", { "lineHeight": "2.5rem", "fontWeight": "500" }],
+            "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "fontWeight": "400" }],
+            "headline-lg": ["3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["2rem", { "lineHeight": "2.5rem", "fontWeight": "400" }],
+            "headline-md-mobile": ["1.5rem", { "lineHeight": "2rem", "fontWeight": "500" }],
+            "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "body-sm": ["0.875rem", { "lineHeight": "1.4rem", "fontWeight": "400" }],
+            "headline-sm": ["1.375rem", { "lineHeight": "1.75rem", "fontWeight": "600" }],
+            "display-hero": ["4.5rem", { "lineHeight": "5rem", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+            "body-md": ["1rem", { "lineHeight": "1.6rem", "fontWeight": "400" }],
+            "display-hero-mobile": ["2.75rem", { "lineHeight": "3.25rem", "letterSpacing": "-0.01em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1;
+    }
+    
+    /* Ethereal Glow & Custom Micro-Animations */
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; filter: blur(20px); transform: scale(1); }
+      50% { opacity: 0.7; filter: blur(28px); transform: scale(1.08); }
+    }
+    @keyframes ribbonWave {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.04) rotate(-2deg); }
+    }
+    @keyframes flameFlicker {
+      0%, 100% { transform: scale(1) rotate(-1deg); filter: drop-shadow(0 0 6px rgba(254,196,133,0.9)); }
+      50% { transform: scale(1.15) rotate(2deg); filter: drop-shadow(0 0 12px rgba(255,147,166,1)); }
+    }
+    @keyframes smokeDrift {
+      0% { opacity: 0.9; transform: translateY(0) scale(0.6); }
+      100% { opacity: 0; transform: translateY(-30px) scale(2); }
+    }
+
+    .animate-float { animation: gentleFloat 5s ease-in-out infinite; }
+    .animate-ambient-glow { animation: pulseGlow 7s ease-in-out infinite; }
+    .animate-flame { animation: flameFlicker 1.4s ease-in-out infinite alternate; }
+
+    /* Hide scrollbar for clean touch horizontal scrolls */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Touch Canvas */
+    #celebrationCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 99;
+    }
+
+    /* Glass Panels */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border: 1px solid rgba(222, 191, 194, 0.45);
+      box-shadow: 0 12px 32px -8px rgba(136, 19, 55, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+    }
+    .glass-card-interactive:active {
+      transform: scale(0.98);
+      transition: transform 0.15s ease;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary-fixed selection:text-primary min-h-screen overflow-x-hidden relative">
+<!-- Interactive Particles Canvas -->
+<canvas id="celebrationCanvas"></canvas>
+<!-- Ambient Ethereal Glow Backdrops -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+<div class="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-primary-fixed opacity-40 blur-3xl animate-ambient-glow"></div>
+<div class="absolute top-1/3 -right-24 w-96 h-96 rounded-full bg-secondary-fixed opacity-30 blur-3xl animate-ambient-glow" style="animation-delay: -3s;"></div>
+<div class="absolute bottom-1/4 -left-20 w-80 h-80 rounded-full bg-tertiary-fixed opacity-35 blur-3xl animate-ambient-glow" style="animation-delay: -5s;"></div>
+</div>
+<!-- Mobile Viewport Container (Portrait 390px Optimized Shell) -->
+<div class="w-full max-w-[420px] mx-auto min-h-screen relative z-10 flex flex-col pb-16">
+<!-- 1. Mobile Floating Header & Audio Bar (Shared Component Anchored) -->
+<header class="sticky top-3 z-50 px-4 w-full">
+<nav class="bg-surface/85 backdrop-blur-md border border-outline-variant/30 rounded-full py-2.5 px-4 shadow-[0_12px_32px_-8px_rgba(136,19,55,0.08)] flex items-center justify-between transition-all">
+<!-- Brand Title -->
+<a class="flex items-center gap-2 group" href="#prologue">
+<span class="material-symbols-outlined text-primary fill text-[20px] animate-pulse">favorite</span>
+<span class="font-headline-sm text-headline-sm font-semibold tracking-wide text-primary">Dimpu’s Day ❤️</span>
+</a>
+<!-- Action Items (Music Toggle & Floating Heart Tap) -->
+<div class="flex items-center gap-1.5">
+<button aria-label="Toggle Romantic Music" class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-primary-fixed/20 active:scale-90 transition-all duration-200 border border-outline-variant/20 relative" id="audioToggleBtn" onclick="toggleRomanticChimes()">
+<span class="material-symbols-outlined text-[20px]" id="audioIcon">music_note</span>
+<span class="hidden absolute top-1 right-1 w-2 h-2 rounded-full bg-primary animate-ping" id="audioWavePing"></span>
+</button>
+<button aria-label="Celebrate Sparkle" class="h-9 px-3 rounded-full bg-primary-container text-on-primary-container text-label-sm font-label-sm flex items-center gap-1.5 active:scale-95 transition-transform duration-200 shadow-sm" onclick="triggerQuickSparkles(event)">
+<span class="material-symbols-outlined text-[16px] fill">celebration</span>
+<span>Celebrate</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Main Romantic Narrative Journey -->
+<main class="flex-1 px-4 space-y-12 mt-4">
+<!-- SECTION 1: Surprise Entrance -->
+<section class="pt-6 pb-4 flex flex-col items-center text-center" id="prologue">
+<!-- Floating Romantic Pill Badge -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed/50 border border-outline-variant/40 mb-4">
+<span class="material-symbols-outlined text-primary fill text-[14px]">auto_awesome</span>
+<span class="text-label-sm font-label-sm text-primary">An Exclusive Keepsake for Dimpu</span>
+</div>
+<h1 class="font-display-hero-mobile text-display-hero-mobile text-primary tracking-tight font-serif">
+          Hey DIMPU... <span class="inline-block text-tertiary animate-bounce">❤️</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mt-2 leading-relaxed">
+          Someone has prepared a little surprise just for you. Take a soft breath, and step inside this special world.
+        </p>
+<!-- 3D-Look Touchable Gift Box Box Container -->
+<div class="relative my-8 group cursor-pointer" onclick="openSurpriseGift(event)">
+<div class="w-48 h-48 rounded-3xl glass-card flex flex-col items-center justify-center relative p-5 transition-transform duration-300 group-hover:scale-105 active:scale-95 shadow-[0_20px_48px_-10px_rgba(136,19,55,0.16)] border-2 border-secondary-container/40">
+<!-- Simulated Satin Ribbon -->
+<div class="absolute inset-x-0 h-7 top-1/2 -translate-y-1/2 bg-gradient-to-r from-primary-fixed-dim via-primary-container to-primary-fixed-dim opacity-85"></div>
+<div class="absolute inset-y-0 w-7 left-1/2 -translate-x-1/2 bg-gradient-to-b from-primary-fixed-dim via-primary-container to-primary-fixed-dim opacity-85"></div>
+<!-- Ribbon Bow Knot -->
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-14 h-14 flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-primary-container text-4xl fill drop-shadow-md">featured_seasonal_and_gifts</span>
+</div>
+<!-- Inner Heart Pulse Icon -->
+<div class="z-20 w-16 h-16 rounded-full bg-surface-container-lowest/90 flex items-center justify-center shadow-inner border border-primary-fixed">
+<span class="material-symbols-outlined text-primary text-3xl fill animate-pulse" id="giftHeartIcon">favorite</span>
+</div>
+<span class="z-20 mt-3 text-label-sm font-label-sm text-primary tracking-widest uppercase">Tap To Unbox</span>
+</div>
+<!-- Touch ripple rings -->
+<div class="absolute inset-0 rounded-3xl border border-primary/20 animate-ping pointer-events-none opacity-40"></div>
+</div>
+<!-- Prominent Glowing Touch Button -->
+<button class="w-full py-4 px-6 rounded-full bg-primary-container text-surface-container-lowest font-label-md text-label-md flex items-center justify-center gap-2 shadow-[0_12px_28px_rgba(136,19,55,0.28)] active:scale-95 transition-all duration-200 relative overflow-hidden group" id="giftActionBtn" onclick="openSurpriseGift(event)">
+<span class="material-symbols-outlined text-[20px] fill">redeem</span>
+<span class="tracking-wide">Open Your Surprise 🎁</span>
+<div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+</section>
+<!-- SECTION 2: Birthday Countdown & Interactive Candle Blowout -->
+<section class="glass-card rounded-3xl p-5 space-y-6" id="countdown">
+<div class="text-center space-y-1">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Special Milestone</span>
+<h2 class="font-headline-md-mobile text-headline-md-mobile text-primary font-serif">
+            Today is all about YOU, DIMPU! ❤️
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            November 10 – A day made special because someone like you was born.
+          </p>
+</div>
+<!-- Mobile Countdown Digit Cards (Days, Hours, Mins, Secs) -->
+<div class="grid grid-cols-4 gap-2 text-center pt-2">
+<div class="bg-surface-container-lowest/80 rounded-2xl p-2.5 border border-outline-variant/30 shadow-sm flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm font-serif text-primary" id="cntDays">00</span>
+<span class="text-[10px] font-label-sm text-on-surface-variant uppercase tracking-wider mt-0.5">Days</span>
+</div>
+<div class="bg-surface-container-lowest/80 rounded-2xl p-2.5 border border-outline-variant/30 shadow-sm flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm font-serif text-primary" id="cntHours">12</span>
+<span class="text-[10px] font-label-sm text-on-surface-variant uppercase tracking-wider mt-0.5">Hours</span>
+</div>
+<div class="bg-surface-container-lowest/80 rounded-2xl p-2.5 border border-outline-variant/30 shadow-sm flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm font-serif text-primary" id="cntMins">48</span>
+<span class="text-[10px] font-label-sm text-on-surface-variant uppercase tracking-wider mt-0.5">Mins</span>
+</div>
+<div class="bg-surface-container-lowest/80 rounded-2xl p-2.5 border border-outline-variant/30 shadow-sm flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm font-serif text-tertiary" id="cntSecs">26</span>
+<span class="text-[10px] font-label-sm text-on-surface-variant uppercase tracking-wider mt-0.5">Secs</span>
+</div>
+</div>
+<!-- Interactive Birthday Cake & Candles -->
+<div class="flex flex-col items-center justify-center pt-4 relative">
+<!-- Cake Multi-tier Presentation -->
+<div class="relative w-48 h-40 flex flex-col items-center justify-end">
+<!-- Glowing Flame Candles (3 Candles) -->
+<div class="flex gap-6 absolute top-4 z-20" id="candlesRow">
+<div class="candle flex flex-col items-center">
+<div class="candle-flame w-3.5 h-5 rounded-full bg-gradient-to-t from-secondary-container via-primary-fixed-dim to-surface-bright animate-flame"></div>
+<div class="smoke-puff hidden w-2 h-2 rounded-full bg-outline-variant/60"></div>
+<div class="w-1.5 h-6 bg-gradient-to-b from-primary-fixed to-outline-variant rounded-t-sm shadow-sm"></div>
+</div>
+<div class="candle flex flex-col items-center -mt-2">
+<div class="candle-flame w-4 h-6 rounded-full bg-gradient-to-t from-secondary-container via-primary-fixed-dim to-surface-bright animate-flame"></div>
+<div class="smoke-puff hidden w-2 h-2 rounded-full bg-outline-variant/60"></div>
+<div class="w-2 h-8 bg-gradient-to-b from-secondary-fixed to-secondary-fixed-dim rounded-t-sm shadow-sm"></div>
+</div>
+<div class="candle flex flex-col items-center">
+<div class="candle-flame w-3.5 h-5 rounded-full bg-gradient-to-t from-secondary-container via-primary-fixed-dim to-surface-bright animate-flame"></div>
+<div class="smoke-puff hidden w-2 h-2 rounded-full bg-outline-variant/60"></div>
+<div class="w-1.5 h-6 bg-gradient-to-b from-primary-fixed to-outline-variant rounded-t-sm shadow-sm"></div>
+</div>
+</div>
+<!-- Cake Tier 1 (Top) -->
+<div class="w-28 h-10 bg-primary-fixed/80 rounded-t-2xl border-t-2 border-surface-container-lowest relative z-10 flex items-center justify-center shadow-inner">
+<div class="w-full flex justify-around px-2">
+<span class="w-2 h-2 rounded-full bg-surface-container-lowest/80"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-lowest/80"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-lowest/80"></span>
+</div>
+</div>
+<!-- Cake Tier 2 (Bottom Base) -->
+<div class="w-44 h-14 bg-gradient-to-r from-primary-fixed-dim via-surface-container-low to-secondary-fixed rounded-t-3xl border-t-2 border-surface-container-lowest flex items-center justify-center relative shadow-md">
+<span class="font-quote-accent text-primary text-xs font-semibold tracking-wider">DIMPU ❤️</span>
+</div>
+<!-- Cake Plate Stand -->
+<div class="w-52 h-3.5 bg-outline-variant/40 rounded-full -mt-1 shadow-sm"></div>
+</div>
+<!-- Revealed Wish Banner after Blowout -->
+<div class="hidden mt-4 text-center transform transition-all duration-500 scale-90" id="wishRevealedBanner">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary-container text-surface-container-lowest text-label-sm font-label-sm tracking-wider animate-bounce shadow-md">
+              🎉 HAPPY BIRTHDAY DIMPU! ✨
+            </span>
+<p class="text-body-sm font-body-sm text-primary mt-2">May all your wishes be carried to the stars tonight!</p>
+</div>
+<!-- Candle Blowout Trigger Button -->
+<button class="mt-5 w-full py-3.5 px-4 rounded-full border border-secondary-container bg-surface-container-lowest text-primary font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-secondary-fixed/20 active:scale-95 transition-all shadow-sm" id="blowCandleBtn" onclick="blowOutCandles(event)">
+<span class="material-symbols-outlined text-secondary text-[20px]">air</span>
+<span>Blow Candles &amp; Make a Wish ✨</span>
+</button>
+</div>
+</section>
+<!-- SECTION 3: Memories Polaroid Scrapbook (7 Vertical Keepsake Cards) -->
+<section class="space-y-4" id="memories">
+<div class="text-center space-y-1">
+<div class="inline-flex items-center gap-1 text-secondary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">photo_library</span>
+<span>Memory Keepsakes</span>
+</div>
+<h2 class="font-headline-md-mobile text-headline-md-mobile text-primary font-serif">
+            A Glimpse of Our Journey 🌸
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Seven moments carved forever into heartstrings. Tap any keepsake to enlarge.
+          </p>
+</div>
+<!-- 7 Vertical Tactile Polaroids List -->
+<div class="space-y-6 pt-2">
+<!-- Keepsake #01 -->
+<div class="glass-card p-3 rounded-2xl relative shadow-md transform rotate-[-1deg] transition-all active:scale-[0.98] cursor-pointer" onclick="openModalPhoto(1, 'The First Time I Saw That Smile ✨', 'That day the entire world paused for a second. Your smile illuminated everything around us with effortless warmth.')">
+<!-- Simulated Washi Tape Accent -->
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-secondary-fixed/70 backdrop-blur-sm -rotate-2 rounded-sm border-x border-dashed border-outline-variant/50 z-20"></div>
+<div class="w-full h-56 rounded-xl overflow-hidden bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="A cinematic medium close-up photograph of an elegant smiling young woman Dimpu enjoying golden hour in a blooming botanical garden. The background features delicate pastel flowers, soft rose blush light bokeh, glowing aesthetic, romantic editorial portrait." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWwNm3t-AJKtXVmwJG-KvYAnBu2gP-kAhZ4aFVJTD1F3IsJqQ0_e92IiHSkP_UhKBBll6lGcYrZ9lbcX0uDIRtlYirnZxhlthADfiEREFXVH6wOpgQWP9DKCwEKPNmEXAjUpjBu77ecwahSPjhaHLdxyJxHEBSbLVZ_brv-OuafHM6ThaPd9fkM9xHjPzUdhtfg5BuK8ta8c85FoCPeqL48ONuOYeeO8rrUZQ5RNo"/>
+<span class="absolute bottom-2 right-2 px-2.5 py-0.5 rounded-full bg-inverse-surface/60 text-surface text-[10px] backdrop-blur-md">Keepsake #01</span>
+</div>
+<div class="pt-3 pb-1 text-center">
+<h3 class="font-quote-accent text-base text-primary font-medium">The First Time I Saw That Smile ✨</h3>
+</div>
+</div>
+<!-- Keepsake #02 -->
+<div class="glass-card p-3 rounded-2xl relative shadow-md transform rotate-[1deg] transition-all active:scale-[0.98] cursor-pointer" onclick="openModalPhoto(2, 'Little Moments, Infinite Happiness 🌸', 'Sitting side by side, saying nothing, yet feeling completely understood and blissfully safe.')">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-primary-fixed/70 backdrop-blur-sm rotate-1 rounded-sm border-x border-dashed border-outline-variant/50 z-20"></div>
+<div class="w-full h-56 rounded-xl overflow-hidden bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="A gentle candid outdoor photo capturing two delicate cups of hot blossom tea on a wooden vintage table with rose petals strewn around and soft morning sunlight casting long warm shadows in romantic cottage ambiance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsb8mMTtGgr64sodtrdGfJAf2OyPSu4qpczYTA1pKOVAKyZyWgwM4h9YGQCBnL2O2TNIq4JmFtyONsTbD2sGR7CvPq0mJCGZdnBRl_N0YsJ-dgRH7YrmD9v6jNXaerkXSUcx2t36Ax9xCFf3iET6cMSfBiFcz9RDFSx4q2AjhcY_-14F7p7MZsz5B7j5Rnyb4nrDnH4GTqwpaFxSpg4O1yRKPRC2cpraFMrJ1G7hg"/>
+<span class="absolute bottom-2 right-2 px-2.5 py-0.5 rounded-full bg-inverse-surface/60 text-surface text-[10px] backdrop-blur-md">Keepsake #02</span>
+</div>
+<div class="pt-3 pb-1 text-center">
+<h3 class="font-quote-accent text-base text-primary font-medium">Little Moments, Infinite Happiness 🌸</h3>
+</div>
+</div>
+<!-- Keepsake #03 -->
+<div class="glass-card p-3 rounded-2xl relative shadow-md transform rotate-[-0.8deg] transition-all active:scale-[0.98] cursor-pointer" onclick="openModalPhoto(3, 'Every Laugh We Shared 💕', 'Your contagious laughter is the sweetest melody this universe ever created. Keep laughing forever.')">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-secondary-fixed/70 backdrop-blur-sm -rotate-1 rounded-sm border-x border-dashed border-outline-variant/50 z-20"></div>
+<div class="w-full h-56 rounded-xl overflow-hidden bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="Romantic aesthetic sunset beach stroll with two joyful silhouettes playing along the shoreline, glowing pink and amber champagne sky reflecting in wet tide pools, cinematic warmth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClYlseSURWUjJepx6-yB-6AyKEiFsPDwn5nxbhfk8OQSAvgauYv7PT9LbSvHCoPmtQ0CrUP0LsqWtKCGkef0tvthi4q10MSR0A0sAXKUUvkGKkMUnWioPuqYLzx3OjCI4ac4-LinLD4grJWQEVDz6b3h4-eKfzMP-qY3T56rfByASyfR9Qti6WQG9TwdIYGIZV-_f4Wc1csRUy7jEFs406N_tRMo3uLuY5B4WWXds"/>
+<span class="absolute bottom-2 right-2 px-2.5 py-0.5 rounded-full bg-inverse-surface/60 text-surface text-[10px] backdrop-blur-md">Keepsake #03</span>
+</div>
+<div class="pt-3 pb-1 text-center">
+<h3 class="font-quote-accent text-base text-primary font-medium">Every Laugh We Shared 💕</h3>
+</div>
+</div>
+<!-- Keepsake #04 -->
+<div class="glass-card p-3 rounded-2xl relative shadow-md transform rotate-[1.2deg] transition-all active:scale-[0.98] cursor-pointer" onclick="openModalPhoto(4, 'Our Quiet, Peaceful Days ☕', 'Warm coffee cups, soft rain on the windowpane, and the calm assurance that everything is alright.')">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-primary-fixed/70 backdrop-blur-sm rotate-2 rounded-sm border-x border-dashed border-outline-variant/50 z-20"></div>
+<div class="w-full h-56 rounded-xl overflow-hidden bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="Cozy library cafe setting with open poetry books, ceramic mug with latte foam heart, rain droplets on panoramic glass window overlooking a soft misty autumn garden, warm blush tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv4vVaycN7FPZ6DU4BWxoACXDiNJ2y_YUaHhu92SqDWEy17sXEp9DFF1kmBRSfc2HmDQut1z38haS2AFzVwrqV61VNQ2MePXhPiMXYlGrmTDsuwpWssA9S2uZk8zSNy4O7cOi8rIQGHOdrqx1Ei5U0R8CLVg7z8Gi52dMHdkd5L02JlrHnxsHcx6m4FQ7qVD9x5eH7Fs124El6KMQMfWNUGcm3LV33lCft2BO-Ako"/>
+<span class="absolute bottom-2 right-2 px-2.5 py-0.5 rounded-full bg-inverse-surface/60 text-surface text-[10px] backdrop-blur-md">Keepsake #04</span>
+</div>
+<div class="pt-3 pb-1 text-center">
+<h3 class="font-quote-accent text-base text-primary font-medium">Our Quiet, Peaceful Days ☕</h3>
+</div>
+</div>
+<!-- Keepsake #05 -->
+<div class="glass-card p-3 rounded-2xl relative shadow-md transform rotate-[-1deg] transition-all active:scale-[0.98] cursor-pointer" onclick="openModalPhoto(5, 'Your Radiance Lights Up The World 🌟', 'There is a genuine, pure grace in the way you carry yourself through every day. Never doubt your sparkle.')">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-secondary-fixed/70 backdrop-blur-sm -rotate-2 rounded-sm border-x border-dashed border-outline-variant/50 z-20"></div>
+<div class="w-full h-56 rounded-xl overflow-hidden bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="An ethereal dreamy portrait of a graceful woman holding a glowing warm fairy light lantern at twilight under blooming cherry blossoms, soft blush pastel color grading, starlight sparkles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKWceKar0frS7DHFsN1Jpt8feGNZGS-TAHjbglmh83dhzzl1F4iK2pb5iE089fcrBPYKkBhqsBo_9nna-hd6FAusQShaytAh9CTlSzGALOsySoaIX1tFACtsckZCXMMBXC6faQOygRgLfXH13qNYgzm-SdJ1vCIyhieatsJTLwaWVvnu5Sb3UmJaEovZBGXMJ0y87oDQBaHjZOArvLgrz8SlkXugMfbRfQ15lcUfA"/>
+<span class="absolute bottom-2 right-2 px-2.5 py-0.5 rounded-full bg-inverse-surface/60 text-surface text-[10px] backdrop-blur-md">Keepsake #05</span>
+</div>
+<div class="pt-3 pb-1 text-center">
+<h3 class="font-quote-accent text-base text-primary font-medium">Your Radiance Lights Up The World 🌟</h3>
+</div>
+</div>
+<!-- Keepsake #06 -->
+<div class="glass-card p-3 rounded-2xl relative shadow-md transform rotate-[0.9deg] transition-all active:scale-[0.98] cursor-pointer" onclick="openModalPhoto(6, 'Adventures We’ll Never Forget 🗺️', 'From unexpected detours to star-filled nights, every path is breathtaking when walked with you.')">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-primary-fixed/70 backdrop-blur-sm rotate-1 rounded-sm border-x border-dashed border-outline-variant/50 z-20"></div>
+<div class="w-full h-56 rounded-xl overflow-hidden bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="A scenic hill overlook during sunrise bathed in gentle lavender and peach light, vintage compass and travel diary resting on a soft woven picnic blanket overlooking mountain horizons." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhGjhmVgSpk6t7BOD_L-0Qhf8aPCe8y5CrX1yTqGi7Bi-dwdPMk3nTyoEnG_IVjJV_BGQWeC6vwRG69R6WCSf4mNglGQHU49hvQEUy6bR5jNv5uR4s9Ww6w4a3C1ac1Ww3hkd-NhE9p_7Pg2B0nWqe2GB5ouZPh5HmdgAnAeS3T5R065t6Qt0mka7MJDSZzAM3OPatj1EysNlDGB02cas3CFs2L87cMZDHQ2lDi2k"/>
+<span class="absolute bottom-2 right-2 px-2.5 py-0.5 rounded-full bg-inverse-surface/60 text-surface text-[10px] backdrop-blur-md">Keepsake #06</span>
+</div>
+<div class="pt-3 pb-1 text-center">
+<h3 class="font-quote-accent text-base text-primary font-medium">Adventures We’ll Never Forget 🗺️</h3>
+</div>
+</div>
+<!-- Keepsake #07 -->
+<div class="glass-card p-3 rounded-2xl relative shadow-md transform rotate-[-0.5deg] transition-all active:scale-[0.98] cursor-pointer" onclick="openModalPhoto(7, 'My Favorite Person Forever &amp; Always 💖', 'In a universe of billions, you are the one that makes life endlessly tender, kind, and worth celebrating.')">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 bg-primary-fixed-dim/70 backdrop-blur-sm -rotate-1 rounded-sm border-x border-dashed border-outline-variant/50 z-20"></div>
+<div class="w-full h-56 rounded-xl overflow-hidden bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="A close-up aesthetic shot of two hands holding softly with delicate rose gold ring, surrounded by soft pink rose petals and soft diffused warm sunlight, intimate and heartwarming." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqWgRFzQm0lH7_iO3vBxgKD_tFinFIK8UhKWmhuRD1sZn0iLp6HczGEDfATVR36jqCvCQP2ctU5E1O6r3q9nCXp_8bEG6x_YmtmQNw-27JJcHGD0awLy6lRyWLaDDoQUyM5jr2cL7Ta9jv0g5fGd7LSVIl1hqlp6uFDbJJQeC8x-2lK45W2YEA2ntSSpky_b71yVaktt33ccpRClGOGS2sqOCK8MqQwsDy3sN6Ge8"/>
+<span class="absolute bottom-2 right-2 px-2.5 py-0.5 rounded-full bg-inverse-surface/60 text-surface text-[10px] backdrop-blur-md">Keepsake #07</span>
+</div>
+<div class="pt-3 pb-1 text-center">
+<h3 class="font-quote-accent text-base text-primary font-medium">My Favorite Person Forever &amp; Always 💖</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Interactive Love Letter (Wax Seal & Envelope Unfolding) -->
+<section class="glass-card rounded-3xl p-5 space-y-5" id="love-letter">
+<div class="text-center space-y-1">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Handwritten Sentiment</span>
+<h2 class="font-headline-md-mobile text-headline-md-mobile text-primary font-serif">
+            A Letter Penned for Dimpu 💌
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Sealed with love, awaiting your gentle touch to open.
+          </p>
+</div>
+<!-- Wax Sealed Blush Envelope Mockup -->
+<div class="relative bg-gradient-to-b from-primary-fixed/40 to-surface-container-low rounded-2xl border border-outline-variant/40 p-5 flex flex-col items-center justify-center transition-all duration-500 overflow-hidden min-h-[220px]" id="envelopeContainer">
+<!-- Wax Stamp Badge -->
+<div class="w-16 h-16 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center shadow-lg border-2 border-primary-fixed cursor-pointer active:scale-90 transition-transform z-20" id="waxStamp" onclick="unsealLetter(event)">
+<span class="font-headline-sm text-headline-sm font-serif font-bold">D ❤️</span>
+</div>
+<div class="mt-4 text-center z-20" id="envelopeCallout">
+<span class="text-label-sm font-label-sm text-primary">Wax Sealed • Strictly for Dimpu</span>
+</div>
+<!-- Unsealed Letter Sheet (Reveals on Tap) -->
+<div class="hidden w-full bg-surface-container-lowest/95 rounded-xl p-5 shadow-inner border border-outline-variant/30 mt-4 text-left transition-all duration-700" id="letterPaper">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20 mb-3">
+<span class="font-quote-accent text-primary font-semibold text-lg">Dear Dimpu,</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Nov 10</span>
+</div>
+<!-- Typing Animated / Revealed Text Block -->
+<p class="font-body-md text-body-md text-on-surface leading-relaxed font-serif italic text-primary/90" id="typedLetterContent">
+              On your special day, I just want to remind you how special you are. May your life always be filled with happiness, beautiful memories, endless smiles, and everything your heart wishes for. You deserve all the beautiful things in this world. Keep smiling, keep shining, and never stop being the wonderful person you are. Happy Birthday, Dimpu! ❤️
+            </p>
+<!-- Dimpu Personal Notes Sub-Card -->
+<div class="mt-6 pt-4 border-t border-outline-variant/20">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Your Personal Birthday Wish / Note:</span>
+<span class="hidden text-[10px] text-primary font-label-sm" id="noteSavedTag">Saved ❤️</span>
+</div>
+<textarea class="w-full text-body-sm font-body-sm p-3 rounded-xl border border-outline-variant/40 bg-surface-container-low/60 focus:ring-1 focus:ring-primary focus:border-primary text-on-surface placeholder:text-on-surface-variant/50 resize-none" id="dimpuNoteInput" placeholder="Write a wish for yourself, Dimpu..." rows="2"></textarea>
+<button class="mt-2 w-full py-2 rounded-lg bg-surface-container-high hover:bg-primary-fixed text-primary text-label-sm font-label-sm transition-colors flex items-center justify-center gap-1" onclick="saveDimpuNote()">
+<span class="material-symbols-outlined text-[16px]">bookmark_heart</span>
+<span>Save Note in Keepsake</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Touch Trigger Action -->
+<button class="w-full py-3.5 px-4 rounded-full bg-primary-container text-surface-container-lowest font-label-md text-label-md flex items-center justify-center gap-2 shadow-md active:scale-95 transition-all" id="openLetterBtn" onclick="unsealLetter(event)">
+<span class="material-symbols-outlined text-[20px] fill">mark_email_unread</span>
+<span>Open My Letter 💌</span>
+</button>
+</section>
+<!-- SECTION 5: Interactive Birthday Wishes (Floating Glowing Heart Cards) -->
+<section class="space-y-4" id="wishes">
+<div class="text-center space-y-1">
+<div class="inline-flex items-center gap-1 text-primary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px] fill">favorite</span>
+<span>Touch of Blessings</span>
+</div>
+<h2 class="font-headline-md-mobile text-headline-md-mobile text-primary font-serif">
+            Wishes from the Heart 💕
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Tap each glowing heart card to unlock a secret blessing.
+          </p>
+</div>
+<!-- 5 Touch-Friendly Floating Heart Cards -->
+<div class="space-y-3 pt-2">
+<!-- Heart Card 1 -->
+<div class="wish-card glass-card p-4 rounded-2xl border border-outline-variant/40 transition-all duration-300 cursor-pointer active:scale-98 relative overflow-hidden group" onclick="flipWishHeart(this, event)">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-fixed/60 text-primary flex items-center justify-center shrink-0 shadow-inner group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl fill">sentiment_satisfied_alt</span>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-sm text-base text-primary font-medium">May your smile never fade 😊</h4>
+<p class="wish-secret text-body-sm font-body-sm text-on-surface-variant mt-1 hidden">Even in cloudy days, may your inner sunshine light up every shadow around you.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px] group-hover:text-primary transition-colors">touch_app</span>
+</div>
+</div>
+<!-- Heart Card 2 -->
+<div class="wish-card glass-card p-4 rounded-2xl border border-outline-variant/40 transition-all duration-300 cursor-pointer active:scale-98 relative overflow-hidden group" onclick="flipWishHeart(this, event)">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed/60 text-secondary flex items-center justify-center shrink-0 shadow-inner group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl fill">hotel_class</span>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-sm text-base text-primary font-medium">May every dream come true 🌠</h4>
+<p class="wish-secret text-body-sm font-body-sm text-on-surface-variant mt-1 hidden">May the universe conspire to bring you boundless opportunities, joy, and peace.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px] group-hover:text-primary transition-colors">touch_app</span>
+</div>
+</div>
+<!-- Heart Card 3 -->
+<div class="wish-card glass-card p-4 rounded-2xl border border-outline-variant/40 transition-all duration-300 cursor-pointer active:scale-98 relative overflow-hidden group" onclick="flipWishHeart(this, event)">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-fixed-dim/60 text-primary flex items-center justify-center shrink-0 shadow-inner group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl fill">local_florist</span>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-sm text-base text-primary font-medium">May happiness follow you everywhere 🌸</h4>
+<p class="wish-secret text-body-sm font-body-sm text-on-surface-variant mt-1 hidden">Like a quiet guardian, may serenity and warmth wrap around your every step.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px] group-hover:text-primary transition-colors">touch_app</span>
+</div>
+</div>
+<!-- Heart Card 4 -->
+<div class="wish-card glass-card p-4 rounded-2xl border border-outline-variant/40 transition-all duration-300 cursor-pointer active:scale-98 relative overflow-hidden group" onclick="flipWishHeart(this, event)">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-secondary-container/60 text-secondary flex items-center justify-center shrink-0 shadow-inner group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl fill">featured_seasonal_and_gifts</span>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-sm text-base text-primary font-medium">May your life be full of beautiful surprises 🎁</h4>
+<p class="wish-secret text-body-sm font-body-sm text-on-surface-variant mt-1 hidden">May tomorrow greet you with sweet laughter and wonderful, unexpected blessings.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px] group-hover:text-primary transition-colors">touch_app</span>
+</div>
+</div>
+<!-- Heart Card 5 -->
+<div class="wish-card glass-card p-4 rounded-2xl border border-outline-variant/40 transition-all duration-300 cursor-pointer active:scale-98 relative overflow-hidden group" onclick="flipWishHeart(this, event)">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed/60 text-tertiary flex items-center justify-center shrink-0 shadow-inner group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl fill">favorite</span>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-sm text-base text-primary font-medium">Stay amazing, always 💖</h4>
+<p class="wish-secret text-body-sm font-body-sm text-on-surface-variant mt-1 hidden">Never forget how truly irreplaceable you are to everyone whose heart you touch.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px] group-hover:text-primary transition-colors">touch_app</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: Finale Celebration -->
+<section class="pt-4 pb-10 text-center flex flex-col items-center space-y-6" id="finale">
+<!-- Sparkling Star Crown -->
+<div class="w-14 h-14 rounded-full bg-gradient-to-tr from-primary-fixed to-secondary-container flex items-center justify-center shadow-lg animate-float">
+<span class="material-symbols-outlined text-primary text-3xl fill">auto_awesome</span>
+</div>
+<div class="space-y-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-serif">
+            Once Again, Happy Birthday DIMPU! ❤️
+          </h2>
+<!-- Emotional Quote Block -->
+<div class="p-6 rounded-3xl glass-card border border-primary-fixed/60 relative mt-4">
+<span class="material-symbols-outlined text-outline-variant text-4xl absolute -top-4 left-4 bg-surface px-1">format_quote</span>
+<p class="font-quote-accent text-quote-accent text-primary leading-relaxed italic">
+              "Some people make the world a little more beautiful just by being in it. You're one of them."
+            </p>
+<span class="block mt-3 text-label-sm font-label-sm text-secondary uppercase tracking-widest">— Forever &amp; Always</span>
+</div>
+</div>
+<!-- Big Romantic Replay Button -->
+<div class="w-full pt-4 space-y-3">
+<button class="w-full py-4 px-6 rounded-full bg-primary-container text-surface-container-lowest font-label-md text-label-md flex items-center justify-center gap-2 shadow-[0_12px_28px_rgba(136,19,55,0.28)] active:scale-95 transition-all" onclick="replaySurpriseExperience()">
+<span class="material-symbols-outlined text-[20px] fill">replay</span>
+<span>Replay Surprise ❤️</span>
+</button>
+<button class="w-full py-3 px-6 rounded-full border border-primary-fixed text-primary font-label-sm text-label-sm bg-surface/50 active:scale-95 transition-all flex items-center justify-center gap-1.5" onclick="launchGrandFireworkCelebration()">
+<span class="material-symbols-outlined text-[18px]">flare</span>
+<span>Shower More Confetti &amp; Fireworks 🎆</span>
+</button>
+</div>
+</section>
+</main>
+<!-- FOOTER: Anchored & Shared Component Protocol Execution -->
+<footer class="w-full py-8 px-4 flex flex-col items-center justify-center gap-4 text-center border-t border-outline-variant/20 bg-surface-container-low mt-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-primary fill text-[18px]">favorite</span>
+<span class="font-headline-sm text-headline-sm font-semibold tracking-wide">Dimpu’s Birthday Sanctuary</span>
+</div>
+<!-- Links Array from JSON -->
+<div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-label-sm font-label-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#prologue" onclick="replaySurpriseExperience()">Replay Surprise</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="javascript:void(0)" onclick="toggleRomanticChimes()">Our Love Song</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#love-letter">Secret Notes</a>
+<span class="text-outline-variant">•</span>
+<span class="text-primary font-semibold">Forever &amp; Always</span>
+</div>
+<!-- Exact Copyright Text from JSON -->
+<p class="font-body-sm text-body-sm text-on-surface-variant/80 pt-2">
+        Handcrafted with eternal love for Dimpu • November 10
+      </p>
+</footer>
+</div>
+<!-- PHOTO EXPAND MODAL (Tap-to-expand Keepsake View) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/80 backdrop-blur-md hidden items-center justify-center p-4 transition-opacity duration-300" id="photoModal" onclick="closeModalPhoto()">
+<div class="glass-card max-w-sm w-full rounded-3xl p-4 overflow-hidden relative shadow-2xl" onclick="event.stopPropagation()">
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 text-on-surface flex items-center justify-center z-20" onclick="closeModalPhoto()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+<div class="w-full h-72 rounded-2xl overflow-hidden bg-surface-container-high mb-3">
+<img class="w-full h-full object-cover" data-alt="A high-fashion dreamy romantic photographic keepsake showing emotional warmth, rose-gold tones, ambient glow, and intimate candid atmosphere for Dimpu." id="modalImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrxruQfW41t9OBAXxLdi_QFT3rZDItdxVdJ4bd2Sh80iX8lL4xJRMqZumGZhPOj6OuKmNG4uPLfUcQXJr6LNCPBwG0qiz1mkU8e1z_R32ofDZA4EAp82atwQoxQF3l0UzLmSlLW4U5dXdbZVCecSDb8nw1__nLSpgolv4UMLA2XnStEDSwYwIzpl6pJhZf8Ve4lJ17obEqaBwiC6E8Tg0zSo6IOfOV-q9sYVoxUqo"/>
+</div>
+<div class="space-y-1 px-1">
+<span class="text-[11px] font-label-sm text-secondary uppercase tracking-widest" id="modalKeepsakeTag">Keepsake</span>
+<h4 class="font-headline-sm text-primary font-serif" id="modalTitle">Memory Title</h4>
+<p class="font-body-sm text-on-surface-variant pt-1 leading-relaxed" id="modalDesc">Memory Description</p>
+</div>
+</div>
+</div>
+<!-- Audio Synthesizer & Interactive Logic (Vanilla JS) -->
+<script>
+    // Audio Context Simulation (Sweet soft music box chimes)
+    let audioCtx = null;
+    let isPlayingAudio = false;
+    let chimeInterval = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function playChimeNote(freq, delay = 0, duration = 1.2) {
+      if (!audioCtx) return;
+      setTimeout(() => {
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+          
+          gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.2, audioCtx.currentTime + 0.05);
+          gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+          
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          
+          osc.start();
+          osc.stop(audioCtx.currentTime + duration);
+        } catch (e) {
+          console.log(e);
+        }
+      }, delay);
+    }
+
+    // Melodic sequence for romantic chimes
+    const chimeMelody = [523.25, 659.25, 783.99, 987.77, 880.00, 659.25, 587.33, 659.25]; // C5, E5, G5, B5, A5, E5, D5, E5
+
+    function toggleRomanticChimes() {
+      initAudio();
+      const icon = document.getElementById('audioIcon');
+      const ping = document.getElementById('audioWavePing');
+      
+      if (isPlayingAudio) {
+        clearInterval(chimeInterval);
+        isPlayingAudio = false;
+        icon.innerText = 'music_note';
+        ping.classList.add('hidden');
+      } else {
+        isPlayingAudio = true;
+        icon.innerText = 'volume_up';
+        ping.classList.remove('hidden');
+
+        let noteIdx = 0;
+        // Play first immediately
+        playChimeNote(chimeMelody[0], 0, 1.5);
+        chimeInterval = setInterval(() => {
+          noteIdx = (noteIdx + 1) % chimeMelody.length;
+          playChimeNote(chimeMelody[noteIdx], 0, 1.8);
+          // Occasional harmony note
+          if (noteIdx % 3 === 0) {
+            playChimeNote(chimeMelody[noteIdx] * 1.5, 120, 1.2);
+          }
+        }, 850);
+      }
+    }
+
+    // Canvas Confetti & Fireworks Engine
+    const canvas = document.getElementById('celebrationCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor(x, y, color, isHeart = false) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.isHeart = isHeart;
+        this.size = isHeart ? Math.random() * 12 + 10 : Math.random() * 6 + 4;
+        this.speedX = (Math.random() - 0.5) * 8;
+        this.speedY = (Math.random() - 0.8) * 9 - 2;
+        this.gravity = 0.15;
+        this.opacity = 1;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotationSpeed = (Math.random() - 0.5) * 0.1;
+      }
+      update() {
+        this.speedY += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.opacity -= 0.012;
+        this.rotation += this.rotationSpeed;
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.opacity);
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        
+        if (this.isHeart) {
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          const topCurveHeight = this.size * 0.3;
+          ctx.moveTo(0, topCurveHeight);
+          ctx.bezierCurveTo(0, 0, -this.size / 2, 0, -this.size / 2, topCurveHeight);
+          ctx.bezierCurveTo(-this.size / 2, (this.size + topCurveHeight) / 2, 0, this.size, 0, this.size);
+          ctx.bezierCurveTo(0, this.size, this.size / 2, (this.size + topCurveHeight) / 2, this.size / 2, topCurveHeight);
+          ctx.bezierCurveTo(this.size / 2, 0, 0, 0, 0, topCurveHeight);
+          ctx.closePath();
+          ctx.fill();
+        } else {
+          ctx.fillStyle = this.color;
+          ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+        }
+        ctx.restore();
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = particles.length - 1; i >= 0; i--) {
+        particles[i].update();
+        particles[i].draw();
+        if (particles[i].opacity <= 0 || particles[i].y > canvas.height + 20) {
+          particles.splice(i, 1);
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    function burstConfetti(x, y, count = 45) {
+      const palette = ['#BE185D', '#FB7185', '#F5BC7E', '#881337', '#FFD9DD', '#FFFDF9'];
+      for (let i = 0; i < count; i++) {
+        const color = palette[Math.floor(Math.random() * palette.length)];
+        const isHeart = Math.random() > 0.4;
+        particles.push(new Particle(x, y, color, isHeart));
+      }
+    }
+
+    // SECTION 1: Open Surprise Gift Interaction
+    function openSurpriseGift(e) {
+      initAudio();
+      playChimeNote(659.25, 0);
+      playChimeNote(783.99, 100);
+      playChimeNote(987.77, 200);
+
+      const rect = e.target.getBoundingClientRect();
+      const originX = rect.left + rect.width / 2;
+      const originY = rect.top + rect.height / 2;
+      burstConfetti(originX, originY, 60);
+
+      const btn = document.getElementById('giftActionBtn');
+      btn.innerHTML = `<span class="material-symbols-outlined text-[20px] fill">favorite</span><span>Unwrapped with Love! ❤️</span>`;
+      btn.classList.add('bg-tertiary-container');
+
+      // Scroll smoothly to Section 2
+      setTimeout(() => {
+        document.getElementById('countdown').scrollIntoView({ behavior: 'smooth' });
+      }, 700);
+    }
+
+    // SECTION 2: Blow Candles Interaction
+    function blowOutCandles(e) {
+      initAudio();
+      // Smoke puff and flame quench
+      const flames = document.querySelectorAll('.candle-flame');
+      const smokes = document.querySelectorAll('.smoke-puff');
+      flames.forEach(f => f.classList.add('hidden'));
+      smokes.forEach(s => {
+        s.classList.remove('hidden');
+        s.style.animation = 'smokeDrift 1.2s forwards';
+      });
+
+      // Launch Confetti
+      const rect = e.target.getBoundingClientRect();
+      burstConfetti(rect.left + rect.width / 2, rect.top, 55);
+
+      // Sound
+      playChimeNote(523.25, 0);
+      playChimeNote(659.25, 120);
+      playChimeNote(783.99, 240);
+      playChimeNote(1046.50, 360);
+
+      // Reveal banner
+      document.getElementById('wishRevealedBanner').classList.remove('hidden');
+      document.getElementById('wishRevealedBanner').classList.remove('scale-90');
+      document.getElementById('wishRevealedBanner').classList.add('scale-100');
+
+      const btn = document.getElementById('blowCandleBtn');
+      btn.innerHTML = `<span class="material-symbols-outlined text-primary text-[20px] fill">done_all</span><span>Wish Has Been Made! ✨</span>`;
+      btn.disabled = true;
+    }
+
+    // SECTION 4: Unseal Love Letter
+    function unsealLetter(e) {
+      initAudio();
+      playChimeNote(587.33, 0);
+      playChimeNote(880.00, 150);
+
+      const rect = e.target.getBoundingClientRect();
+      burstConfetti(rect.left + rect.width / 2, rect.top, 35);
+
+      document.getElementById('waxStamp').classList.add('scale-75', 'opacity-60');
+      document.getElementById('envelopeCallout').classList.add('hidden');
+      document.getElementById('letterPaper').classList.remove('hidden');
+      
+      const openBtn = document.getElementById('openLetterBtn');
+      openBtn.innerHTML = `<span class="material-symbols-outlined text-[20px] fill">mark_email_read</span><span>Letter Unsealed With Love ❤️</span>`;
+      openBtn.classList.add('opacity-80');
+    }
+
+    function saveDimpuNote() {
+      const noteInput = document.getElementById('dimpuNoteInput');
+      if (noteInput.value.trim() !== '') {
+        initAudio();
+        playChimeNote(783.99, 0);
+        document.getElementById('noteSavedTag').classList.remove('hidden');
+        setTimeout(() => {
+          document.getElementById('noteSavedTag').classList.add('hidden');
+        }, 3000);
+      }
+    }
+
+    // SECTION 5: Flip Wish Heart
+    function flipWishHeart(cardElem, e) {
+      initAudio();
+      playChimeNote(880.00, 0);
+      const secret = cardElem.querySelector('.wish-secret');
+      secret.classList.toggle('hidden');
+      
+      const rect = cardElem.getBoundingClientRect();
+      burstConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2, 20);
+    }
+
+    // Modal Photo Keepsake
+    const modalData = {
+      1: {
+        title: "The First Time I Saw That Smile ✨",
+        desc: "That day the entire world paused for a second. Your smile illuminated everything around us with effortless warmth and gentle grace.",
+        tag: "Keepsake #01"
+      },
+      2: {
+        title: "Little Moments, Infinite Happiness 🌸",
+        desc: "Sitting side by side, saying nothing, yet feeling completely understood, safe, and profoundly cherished.",
+        tag: "Keepsake #02"
+      },
+      3: {
+        title: "Every Laugh We Shared 💕",
+        desc: "Your contagious laughter is the sweetest melody this universe ever created. Keep laughing forever, Dimpu.",
+        tag: "Keepsake #03"
+      },
+      4: {
+        title: "Our Quiet, Peaceful Days ☕",
+        desc: "Warm coffee cups, soft rain on the windowpane, and the calm assurance that our hearts beat in harmony.",
+        tag: "Keepsake #04"
+      },
+      5: {
+        title: "Your Radiance Lights Up The World 🌟",
+        desc: "There is a genuine, pure grace in the way you carry yourself through every day. Never doubt your sparkle.",
+        tag: "Keepsake #05"
+      },
+      6: {
+        title: "Adventures We’ll Never Forget 🗺️",
+        desc: "From unexpected detours to star-filled nights, every path is breathtaking when walked with you.",
+        tag: "Keepsake #06"
+      },
+      7: {
+        title: "My Favorite Person Forever & Always 💖",
+        desc: "In a universe of billions, you are the one that makes life endlessly tender, kind, and worth celebrating.",
+        tag: "Keepsake #07"
+      }
+    };
+
+    function openModalPhoto(id, fallbackTitle, fallbackDesc) {
+      initAudio();
+      playChimeNote(659.25, 0);
+      const data = modalData[id] || { title: fallbackTitle, desc: fallbackDesc, tag: `Keepsake #0${id}` };
+      document.getElementById('modalTitle').innerText = data.title;
+      document.getElementById('modalDesc').innerText = data.desc;
+      document.getElementById('modalKeepsakeTag').innerText = data.tag;
+      
+      const modal = document.getElementById('photoModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModalPhoto() {
+      const modal = document.getElementById('photoModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Finale & Celebrations
+    function launchGrandFireworkCelebration() {
+      initAudio();
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          const x = Math.random() * window.innerWidth;
+          const y = Math.random() * (window.innerHeight * 0.6);
+          burstConfetti(x, y, 40);
+          playChimeNote(523.25 + i * 110, 0, 1.2);
+        }, i * 200);
+      }
+    }
+
+    function triggerQuickSparkles(e) {
+      initAudio();
+      playChimeNote(987.77, 0);
+      const rect = e.target.getBoundingClientRect();
+      burstConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2, 25);
+    }
+
+    function replaySurpriseExperience() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      launchGrandFireworkCelebration();
+    }
+
+    // Live Clock countdown simulator ticking
+    setInterval(() => {
+      const secElem = document.getElementById('cntSecs');
+      if (secElem) {
+        let sec = parseInt(secElem.innerText) - 1;
+        if (sec < 0) sec = 59;
+        secElem.innerText = sec < 10 ? '0' + sec : sec;
+      }
+    }, 1000);
+  </script>
+</body></html>
