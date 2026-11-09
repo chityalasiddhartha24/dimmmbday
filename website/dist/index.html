@@ -252,6 +252,24 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #aa304f;
     }
+
+    /* Hands-Free Story Mode & Highlight Styling */
+    .story-highlight-card {
+      box-shadow: 0 0 36px 10px rgba(251, 113, 131, 0.55), 0 24px 50px -10px rgba(136, 19, 55, 0.35) !important;
+      border-color: #fb7185 !important;
+      transform: translateY(-12px) scale(1.04) rotate(0deg) !important;
+      z-index: 30 !important;
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    #storyHud {
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #storyHud.story-hud-visible {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transform: translateY(0) !important;
+    }
   </style>
 </head>
 
@@ -298,8 +316,12 @@
       <a class="text-on-surface-variant hover:text-primary transition-colors" href="#finale">Grand Finale</a>
     </div>
 
-    <!-- Celebration CTA Action Button -->
+    <!-- Action Buttons -->
     <div class="flex items-center gap-2">
+      <button class="border border-primary/30 text-primary font-label-md text-xs sm:text-sm px-3.5 py-1.5 rounded-full hover:bg-primary-fixed/40 transition-all duration-300 shadow-sm active:scale-95 flex items-center gap-1.5" id="navStoryBtn" title="Start hands-free cinematic birthday tour">
+        <span class="material-symbols-outlined text-sm sm:text-base fill">play_circle</span>
+        <span id="navStoryLabel">Auto Story</span>
+      </button>
       <button class="bg-primary-container text-on-primary font-label-md text-xs sm:text-sm px-4 py-1.5 rounded-full hover:bg-primary transition-all duration-300 shadow-sm active:scale-95 flex items-center gap-1.5" id="navCelebrateBtn">
         <span class="material-symbols-outlined text-sm sm:text-base">celebration</span>
         <span>Celebrate</span>
@@ -368,7 +390,10 @@
           <span>Open Your Surprise 🎁</span>
           <span class="material-symbols-outlined group-hover:rotate-12 transition-transform duration-300 text-xl">redeem</span>
         </button>
-        <span class="text-on-surface-variant text-xs sm:text-sm font-label-sm">Click the gift box or button to begin your birthday journey</span>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary-fixed/60 text-primary text-xs font-semibold border border-primary/25 shadow-sm mt-1 animate-pulse">
+          <span class="material-symbols-outlined text-xs fill">auto_mode</span>
+          <span>Hands-Free Story Experience • Sit back &amp; enjoy Dimpu's surprise ❤️</span>
+        </div>
       </div>
 
       <!-- Scroll Down Indicator -->
@@ -986,6 +1011,43 @@
 
   </main>
 
+  <!-- Floating Story Mode HUD (Cinematic Hands-Free Tour Controller) -->
+  <aside id="storyHud" class="fixed bottom-4 sm:bottom-6 inset-x-0 mx-auto w-[92%] sm:w-auto max-w-xl z-50 transition-all duration-500 opacity-0 pointer-events-none translate-y-8" aria-label="Cinematic Birthday Tour Controls">
+    <div class="glass-card rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-[0_20px_50px_-10px_rgba(136,19,55,0.25)] border border-primary/25 flex items-center justify-between gap-3 bg-white/95 backdrop-blur-xl">
+      <!-- Chapter indicator & live title -->
+      <div class="flex items-center gap-2.5 min-w-0 flex-1">
+        <span class="w-3 h-3 rounded-full bg-primary animate-ping flex-shrink-0" id="storyPulseDot"></span>
+        <div class="flex flex-col min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-primary" id="storyChapterStep">Chapter 1 of 6</span>
+            <span class="text-[10px] sm:text-xs text-on-surface-variant font-medium hidden sm:inline" id="storyStatusHint">• Hands-Free Tour Active</span>
+          </div>
+          <span class="text-xs sm:text-sm font-semibold text-primary truncate" id="storyChapterTitle">Surprise Opens 🎁</span>
+        </div>
+      </div>
+
+      <!-- Tour Control Actions -->
+      <div class="flex items-center gap-1.5 flex-shrink-0">
+        <!-- Pause / Resume -->
+        <button id="storyPauseResumeBtn" class="p-2 sm:px-3 sm:py-1.5 rounded-full bg-primary-container text-white text-xs font-semibold hover:bg-primary transition-all flex items-center gap-1 shadow-sm active:scale-95" title="Pause / Resume hands-free story">
+          <span class="material-symbols-outlined text-base" id="storyPauseIcon">pause</span>
+          <span class="hidden sm:inline" id="storyPauseLabel">Pause</span>
+        </button>
+
+        <!-- Next Chapter -->
+        <button id="storySkipBtn" class="p-2 sm:px-3 sm:py-1.5 rounded-full bg-primary-fixed text-primary text-xs font-semibold hover:bg-primary-fixed-dim transition-all flex items-center gap-1 active:scale-95" title="Skip to next chapter">
+          <span class="material-symbols-outlined text-base">skip_next</span>
+          <span class="hidden sm:inline">Next</span>
+        </button>
+
+        <!-- Close HUD / Exit Tour -->
+        <button id="storyExitBtn" class="p-2 rounded-full hover:bg-black/5 text-on-surface-variant transition-colors" title="Exit hands-free mode">
+          <span class="material-symbols-outlined text-base">close</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
   <!-- Site Footer -->
   <footer class="w-full bg-surface-container-low border-t border-outline-variant/30">
     <div class="w-full py-12 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6 max-w-7xl mx-auto text-center md:text-left">
@@ -1181,36 +1243,37 @@
     const openSurpriseBtn = document.getElementById('openSurpriseBtn');
     let giftOpened = false;
 
-    function triggerGiftOpen() {
-      if (giftOpened) return;
-      giftOpened = true;
-      initAudio();
-      
-      giftBoxContainer.classList.add('gift-box-open');
-      burstConfetti(giftBoxContainer);
-      
-      playChime(523.25, 0, 1.2);
-      playChime(659.25, 0.15, 1.5);
-      playChime(783.99, 0.3, 2.0);
+    function triggerGiftOpen(autoLaunchStory = true) {
+      if (!giftOpened) {
+        giftOpened = true;
+        initAudio();
+        
+        giftBoxContainer.classList.add('gift-box-open');
+        burstConfetti(giftBoxContainer);
+        
+        playChime(523.25, 0, 1.2);
+        playChime(659.25, 0.15, 1.5);
+        playChime(783.99, 0.3, 2.0);
 
-      // Start gentle music if not yet playing
-      if (!isPlayingAudio) {
-        startMusic();
+        // Start gentle music if not yet playing
+        if (!isPlayingAudio) {
+          startMusic();
+        }
       }
 
-      setTimeout(() => {
-        document.getElementById('countdown').scrollIntoView({ behavior: 'smooth' });
-      }, 1200);
+      if (autoLaunchStory && !storyActive) {
+        startCinematicStory(true);
+      }
     }
 
-    giftBoxContainer.addEventListener('click', triggerGiftOpen);
+    giftBoxContainer.addEventListener('click', () => triggerGiftOpen(true));
     giftBoxContainer.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        triggerGiftOpen();
+        triggerGiftOpen(true);
       }
     });
-    openSurpriseBtn.addEventListener('click', triggerGiftOpen);
+    openSurpriseBtn.addEventListener('click', () => triggerGiftOpen(true));
 
     /* ------------------------------------------ */
     /* 4. SCREEN 2: COUNTDOWN & CANDLE BLOWING    */
@@ -1258,7 +1321,7 @@
 
     // Make a Wish Candle Blow Interaction
     const blowCandlesBtn = document.getElementById('blowCandlesBtn');
-    blowCandlesBtn.addEventListener('click', () => {
+    function triggerCandleBlow() {
       initAudio();
       
       // Blow out flames
@@ -1281,7 +1344,8 @@
       blowCandlesBtn.innerHTML = '<span>Wish Made! ❤️</span>';
       blowCandlesBtn.disabled = true;
       blowCandlesBtn.classList.add('opacity-80', 'cursor-default');
-    });
+    }
+    blowCandlesBtn.addEventListener('click', triggerCandleBlow);
 
     /* ------------------------------------------ */
     /* 5. SCREEN 3: MEMORY GALLERY & LIGHTBOX     */
@@ -1493,7 +1557,7 @@ Happy Birthday, Dimpu! ❤️`;
 
     let letterOpened = false;
 
-    function typeWriter(text, elementId, speed = 24) {
+    function typeWriter(text, elementId, speed = 20, onComplete = null) {
       const el = document.getElementById(elementId);
       el.innerHTML = '';
       let i = 0;
@@ -1511,13 +1575,20 @@ Happy Birthday, Dimpu! ❤️`;
             i++;
           }
           setTimeout(type, speed);
+        } else {
+          if (typeof onComplete === 'function') {
+            onComplete();
+          }
         }
       }
       type();
     }
 
-    function openLetter() {
-      if (letterOpened) return;
+    function openLetter(onComplete = null) {
+      if (letterOpened) {
+        if (typeof onComplete === 'function') onComplete();
+        return;
+      }
       letterOpened = true;
       initAudio();
       playCutePop();
@@ -1525,13 +1596,13 @@ Happy Birthday, Dimpu! ❤️`;
       const envelope = document.getElementById('envelopeContainer');
       envelope.classList.add('envelope-open');
 
-      typeWriter(exactLetterText, 'letterContentDisplay');
+      typeWriter(exactLetterText, 'letterContentDisplay', 20, onComplete);
       
       document.getElementById('openLetterBtn').classList.add('hidden');
     }
 
-    document.getElementById('waxSealBtn').addEventListener('click', openLetter);
-    document.getElementById('openLetterBtn').addEventListener('click', openLetter);
+    document.getElementById('waxSealBtn').addEventListener('click', () => openLetter());
+    document.getElementById('openLetterBtn').addEventListener('click', () => openLetter());
 
     /* ------------------------------------------ */
     /* 7. SCREEN 5: CELESTIAL BIRTHDAY WISHES     */
@@ -1781,18 +1852,51 @@ Happy Birthday, Dimpu! ❤️`;
       finaleObserver.observe(finaleSection);
     }
 
-    // Replay functionality: Smoothly scrolls to top & resets gift box
+    // Replay functionality: Smoothly scrolls to top & resets surprise
     function replaySurprise() {
       launchGrandFireworks(3000);
       burstConfetti(document.getElementById('replayBtn'));
+      exitStoryMode();
 
+      // Reset letter
+      letterOpened = false;
+      const envelope = document.getElementById('envelopeContainer');
+      envelope.classList.remove('envelope-open');
+      document.getElementById('openLetterBtn').classList.remove('hidden');
+      document.getElementById('letterContentDisplay').innerHTML = '';
+
+      // Reset candles
+      const flames = document.querySelectorAll('.candle-flame');
+      flames.forEach(f => f.classList.remove('flame-extinguished'));
+      const smokes = document.querySelectorAll('.smoke-puff');
+      smokes.forEach(s => s.classList.add('hidden'));
+      document.getElementById('wishRevealedText').classList.add('hidden');
+      blowCandlesBtn.innerHTML = '<span class="material-symbols-outlined group-hover:rotate-45 transition-transform duration-300">auto_awesome</span><span>Make a Wish ✨</span>';
+      blowCandlesBtn.disabled = false;
+      blowCandlesBtn.classList.remove('opacity-80', 'cursor-default');
+
+      // Reset wishes
+      unlockedWishes.clear();
+      for (let i = 0; i < 5; i++) {
+        const badge = document.getElementById(`wishBadge-${i}`);
+        const hint = document.getElementById(`wishHint-${i}`);
+        if (badge) badge.classList.add('hidden');
+        if (hint) hint.classList.remove('hidden');
+      }
+      document.getElementById('wishDetailBox').classList.add('hidden');
+      document.getElementById('wishesProgress').textContent = 'Wishes Unlocked: 0 / 5 ✨';
+
+      // Reset gift box
+      giftOpened = false;
+      giftBoxContainer.classList.remove('gift-box-open');
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Restart story tour after scroll
       setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setTimeout(() => {
-          giftOpened = false;
-          giftBoxContainer.classList.remove('gift-box-open');
-        }, 800);
-      }, 500);
+        startCinematicStory(true);
+      }, 1200);
     }
 
     // Top Bar Celebrate Button
@@ -1801,6 +1905,359 @@ Happy Birthday, Dimpu! ❤️`;
       burstConfetti(document.getElementById('navCelebrateBtn'));
       launchGrandFireworks(4500);
     });
+
+    /* ----------------------------------------------------------- */
+    /* 9. CINEMATIC HANDS-FREE STORY ENGINE & AUTO-SCROLL CONTROLLER */
+    /* ----------------------------------------------------------- */
+    const storyHud = document.getElementById('storyHud');
+    const storyChapterStep = document.getElementById('storyChapterStep');
+    const storyStatusHint = document.getElementById('storyStatusHint');
+    const storyChapterTitle = document.getElementById('storyChapterTitle');
+    const storyPulseDot = document.getElementById('storyPulseDot');
+    const storyPauseResumeBtn = document.getElementById('storyPauseResumeBtn');
+    const storyPauseIcon = document.getElementById('storyPauseIcon');
+    const storyPauseLabel = document.getElementById('storyPauseLabel');
+    const storySkipBtn = document.getElementById('storySkipBtn');
+    const storyExitBtn = document.getElementById('storyExitBtn');
+    const navStoryBtn = document.getElementById('navStoryBtn');
+
+    let storyActive = false;
+    let storyPaused = false;
+    let currentStoryStep = 0;
+    let storyStepTimer = null;
+    let isAutoScrolling = false;
+    let currentHighlightedCard = null;
+
+    const storyChapters = [
+      {
+        id: 'prologue',
+        name: 'Surprise Opens 🎁',
+        chapterLabel: 'Chapter 1 of 6',
+        targetId: 'prologue',
+        block: 'center',
+        duration: 3200,
+        action: () => {
+          if (!giftOpened) {
+            triggerGiftOpen(false);
+          }
+        }
+      },
+      {
+        id: 'countdown',
+        name: 'Sacred Birthday & Cake 🎂',
+        chapterLabel: 'Chapter 2 of 6',
+        targetId: 'countdown',
+        block: 'center',
+        duration: 6200,
+        action: () => {
+          // Pause 2.4s to view cake, then automatically blow candles
+          storyStepTimer = setTimeout(() => {
+            if (!storyActive || storyPaused) return;
+            triggerCandleBlow();
+          }, 2400);
+        }
+      },
+      {
+        id: 'memories',
+        name: 'Seven Special Memories 📸',
+        chapterLabel: 'Chapter 3 of 6',
+        targetId: 'memories',
+        block: 'start',
+        duration: 25000,
+        action: () => {
+          runMemoriesSpotlight();
+        }
+      },
+      {
+        id: 'letter',
+        name: 'A Personal Letter 💌',
+        chapterLabel: 'Chapter 4 of 6',
+        targetId: 'letter',
+        block: 'center',
+        duration: 16000,
+        action: () => {
+          storyStepTimer = setTimeout(() => {
+            if (!storyActive || storyPaused) return;
+            openLetter(() => {
+              // Once typewriter finishes, pause 4.8s for reading before next
+              storyStepTimer = setTimeout(() => {
+                if (storyActive && !storyPaused) {
+                  advanceStory();
+                }
+              }, 4800);
+            });
+          }, 2000);
+        }
+      },
+      {
+        id: 'wishes',
+        name: 'Celestial Galaxy of Wishes 🌠',
+        chapterLabel: 'Chapter 5 of 6',
+        targetId: 'wishes',
+        block: 'center',
+        duration: 16000,
+        action: () => {
+          runWishesUnlockTour();
+        }
+      },
+      {
+        id: 'finale',
+        name: 'Grand Finale & Fireworks 🎆',
+        chapterLabel: 'Chapter 6 of 6',
+        targetId: 'finale',
+        block: 'center',
+        duration: 12000,
+        action: () => {
+          launchGrandFireworks(7500);
+          burstConfetti(document.getElementById('finale'));
+          if (storyPulseDot) {
+            storyPulseDot.classList.remove('animate-ping', 'bg-primary');
+            storyPulseDot.classList.add('bg-emerald-500');
+          }
+          if (storyStatusHint) storyStatusHint.textContent = '• Story Complete ❤️';
+          if (storyPauseIcon) storyPauseIcon.textContent = 'replay';
+          if (storyPauseLabel) storyPauseLabel.textContent = 'Replay';
+          storyPauseResumeBtn.onclick = () => {
+            replaySurprise();
+          };
+        }
+      }
+    ];
+
+    function showStoryHud() {
+      if (!storyHud) return;
+      storyHud.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-8');
+      storyHud.classList.add('story-hud-visible');
+    }
+
+    function hideStoryHud() {
+      if (!storyHud) return;
+      storyHud.classList.add('opacity-0', 'pointer-events-none', 'translate-y-8');
+      storyHud.classList.remove('story-hud-visible');
+    }
+
+    function updateHud(chapterIndex, customTitle = null) {
+      if (!storyChapterStep || !storyChapterTitle) return;
+      const chapter = storyChapters[chapterIndex];
+      storyChapterStep.textContent = chapter.chapterLabel;
+      storyChapterTitle.textContent = customTitle || chapter.name;
+      
+      if (storyPaused) {
+        if (storyPulseDot) {
+          storyPulseDot.classList.remove('animate-ping', 'bg-primary');
+          storyPulseDot.classList.add('bg-amber-400');
+        }
+        if (storyStatusHint) storyStatusHint.textContent = '• Tour Paused';
+        if (storyPauseIcon) storyPauseIcon.textContent = 'play_arrow';
+        if (storyPauseLabel) storyPauseLabel.textContent = 'Resume';
+      } else {
+        if (storyPulseDot) {
+          storyPulseDot.classList.add('animate-ping', 'bg-primary');
+          storyPulseDot.classList.remove('bg-amber-400');
+        }
+        if (storyStatusHint) storyStatusHint.textContent = '• Hands-Free Tour Active';
+        if (storyPauseIcon) storyPauseIcon.textContent = 'pause';
+        if (storyPauseLabel) storyPauseLabel.textContent = 'Pause';
+      }
+    }
+
+    function smoothScrollTo(element, block = 'center') {
+      if (!element) return;
+      isAutoScrolling = true;
+      element.scrollIntoView({ behavior: 'smooth', block });
+      setTimeout(() => {
+        isAutoScrolling = false;
+      }, 1000);
+    }
+
+    function clearStoryHighlight() {
+      if (currentHighlightedCard) {
+        currentHighlightedCard.classList.remove('story-highlight-card');
+        currentHighlightedCard = null;
+      }
+    }
+
+    function highlightCard(card) {
+      clearStoryHighlight();
+      if (card) {
+        card.classList.add('story-highlight-card');
+        currentHighlightedCard = card;
+        smoothScrollTo(card, 'center');
+      }
+    }
+
+    function startCinematicStory(fromBeginning = true) {
+      storyActive = true;
+      storyPaused = false;
+      showStoryHud();
+      clearTimeout(storyStepTimer);
+
+      if (!isPlayingAudio) {
+        startMusic();
+      }
+
+      if (fromBeginning) {
+        currentStoryStep = 0;
+      }
+
+      runStoryStep(currentStoryStep);
+    }
+
+    function runStoryStep(stepIdx) {
+      if (!storyActive || storyPaused) return;
+      if (stepIdx >= storyChapters.length) {
+        return;
+      }
+
+      currentStoryStep = stepIdx;
+      clearStoryHighlight();
+      clearTimeout(storyStepTimer);
+
+      const chapter = storyChapters[stepIdx];
+      updateHud(stepIdx);
+
+      const targetElem = document.getElementById(chapter.targetId);
+      if (targetElem) {
+        smoothScrollTo(targetElem, chapter.block || 'center');
+      }
+
+      // Execute chapter action
+      if (typeof chapter.action === 'function') {
+        chapter.action();
+      }
+
+      // Auto-advance for chapters 0 & 1
+      if (stepIdx === 0 || stepIdx === 1) {
+        storyStepTimer = setTimeout(() => {
+          if (storyActive && !storyPaused) {
+            advanceStory();
+          }
+        }, chapter.duration);
+      }
+    }
+
+    function advanceStory() {
+      if (!storyActive) return;
+      if (currentStoryStep < storyChapters.length - 1) {
+        runStoryStep(currentStoryStep + 1);
+      }
+    }
+
+    function pauseStory(fromUserAction = false) {
+      if (!storyActive || storyPaused) return;
+      storyPaused = true;
+      clearTimeout(storyStepTimer);
+      updateHud(currentStoryStep, fromUserAction ? `${storyChapters[currentStoryStep].name} (Paused)` : null);
+    }
+
+    function resumeStory() {
+      if (!storyActive) {
+        startCinematicStory(false);
+        return;
+      }
+      storyPaused = false;
+      updateHud(currentStoryStep);
+      runStoryStep(currentStoryStep);
+    }
+
+    function toggleStoryPause() {
+      if (storyPaused) {
+        resumeStory();
+      } else {
+        pauseStory(false);
+      }
+    }
+
+    function skipToNextChapter() {
+      clearTimeout(storyStepTimer);
+      clearStoryHighlight();
+      if (currentStoryStep < storyChapters.length - 1) {
+        storyPaused = false;
+        runStoryStep(currentStoryStep + 1);
+      } else {
+        runStoryStep(storyChapters.length - 1);
+      }
+    }
+
+    function exitStoryMode() {
+      storyActive = false;
+      storyPaused = false;
+      clearTimeout(storyStepTimer);
+      clearStoryHighlight();
+      hideStoryHud();
+    }
+
+    // Memories Spotlight Sub-stepper
+    function runMemoriesSpotlight() {
+      const cards = document.querySelectorAll('#primaryMemoriesGrid .polaroid-card');
+      if (!cards || cards.length === 0) {
+        storyStepTimer = setTimeout(advanceStory, 3000);
+        return;
+      }
+
+      let cardIdx = 0;
+      function spotlightNextCard() {
+        if (!storyActive || storyPaused) return;
+
+        if (cardIdx >= cards.length) {
+          clearStoryHighlight();
+          storyStepTimer = setTimeout(() => {
+            if (storyActive && !storyPaused) advanceStory();
+          }, 1200);
+          return;
+        }
+
+        const card = cards[cardIdx];
+        highlightCard(card);
+        const data = memoriesData[cardIdx];
+        const cardTitle = data ? data.title : `Keepsake #${cardIdx + 1}`;
+        updateHud(2, `${data ? data.keepsake : `Card ${cardIdx + 1}`}: ${cardTitle}`);
+
+        cardIdx++;
+        storyStepTimer = setTimeout(spotlightNextCard, 3200);
+      }
+
+      storyStepTimer = setTimeout(spotlightNextCard, 2000);
+    }
+
+    // Wishes Tour Sub-stepper
+    function runWishesUnlockTour() {
+      let wishIdx = 0;
+      function unlockNextWish() {
+        if (!storyActive || storyPaused) return;
+
+        if (wishIdx >= 5) {
+          storyStepTimer = setTimeout(() => {
+            if (storyActive && !storyPaused) advanceStory();
+          }, 3200);
+          return;
+        }
+
+        revealWish(wishIdx);
+        updateHud(4, `Wish ${wishIdx + 1} of 5: ${wishesData[wishIdx].title}`);
+        wishIdx++;
+        storyStepTimer = setTimeout(unlockNextWish, 2800);
+      }
+
+      storyStepTimer = setTimeout(unlockNextWish, 1800);
+    }
+
+    // Story HUD Listeners
+    if (storyPauseResumeBtn) storyPauseResumeBtn.addEventListener('click', toggleStoryPause);
+    if (storySkipBtn) storySkipBtn.addEventListener('click', skipToNextChapter);
+    if (storyExitBtn) storyExitBtn.addEventListener('click', exitStoryMode);
+    if (navStoryBtn) navStoryBtn.addEventListener('click', () => {
+      startCinematicStory(true);
+    });
+
+    // Detect manual user touches/wheel scrolls during tour -> pause smoothly
+    function handleUserInterruption() {
+      if (storyActive && !storyPaused && !isAutoScrolling) {
+        pauseStory(true);
+      }
+    }
+    window.addEventListener('wheel', handleUserInterruption, { passive: true });
+    window.addEventListener('touchmove', handleUserInterruption, { passive: true });
 
     /* Floating Petals Canvas */
     const petalsCanvas = document.getElementById('petalsCanvas');
